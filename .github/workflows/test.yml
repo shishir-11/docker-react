@@ -1,0 +1,24 @@
+name: Build docker container and run tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Build docker image
+        run: docker build -t my-image -f Dockerfile.dev .
+
+      - name: Run tests
+        run: |
+          docker run -e CI=true my-image npm run test
