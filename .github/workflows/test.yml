@@ -65,4 +65,3 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: shishir956/learning-workflows
-        tag_with_ref: true
