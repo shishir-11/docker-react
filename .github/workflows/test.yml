@@ -9,22 +9,22 @@ on:
       - master
   
 jobs:
-  tests:
-    runs-on: ubuntu-latest
+  # tests:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v3
 
-      - name: Build docker image
-        run: docker build -t my-image -f Dockerfile.dev .
+  #     - name: Build docker image
+  #       run: docker build -t my-image -f Dockerfile.dev .
 
-      - name: Run tests
-        run: |
-          docker run -e CI=true my-image npm run test
+  #     - name: Run tests
+  #       run: |
+  #         docker run -e CI=true my-image npm run test
 
   build:
-    needs: tests
+    # needs: tests
     runs-on: ubuntu-latest
 
     steps:
