@@ -31,6 +31,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       
+      - name: login to dockerhub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
       - name: Build and push docker image
         run: |
           docker build -t my-image .
